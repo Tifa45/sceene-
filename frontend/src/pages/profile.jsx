@@ -25,9 +25,7 @@ function Profile() {
   async function getUserProfile() {
     setLoading(true);
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/users/profile/${id ?? userId}`
-      );
+      const response = await axios.get(`/users/profile/${id ?? userId}`);
       const { userData } = response.data;
       setUserProfile(userData);
       setErrMsg(null);

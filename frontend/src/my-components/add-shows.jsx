@@ -38,7 +38,7 @@ function AddShows() {
 
   useEffect(() => {
     return () => {
-      navigator.sendBeacon("http://localhost:5000/api/shows/clean-img");
+      navigator.sendBeacon("https://sceene.onrender.com/api/shows/clean-img");
     };
   }, []);
 

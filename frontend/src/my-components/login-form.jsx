@@ -17,10 +17,7 @@ function LoginForm({ setFormType }) {
 
   async function onSubmit(data) {
     try {
-      const response = await api.post(
-        "http://localhost:5000/api/auth/login",
-        data
-      );
+      const response = await api.post("/auth/login", data);
       const { token } = response.data;
       localStorage.setItem("token", JSON.stringify(token));
       setTempToken(token);

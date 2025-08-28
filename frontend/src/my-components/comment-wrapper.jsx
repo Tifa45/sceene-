@@ -3,6 +3,7 @@ import CommentTile from "./comment-tile";
 import axios from "axios";
 import CommentForm from "./comment-form";
 import { useUserStore } from "../stores/user-store";
+import api from "../lib/axios-utils";
 
 function CommentWrapper({
   parentComment,
@@ -15,10 +16,9 @@ function CommentWrapper({
   setEditedReply,
   setDeletedReply,
   totalReplies,
-    index,
+  index,
 }) {
   const userId = useUserStore((s) => s.userData.userId);
-  
 
   const [addReply, setAddReply] = useState(false);
   const [viewAllReplies, setViewAllReplies] = useState(false);
@@ -27,10 +27,10 @@ function CommentWrapper({
   const [errMsg, setErrMsg] = useState(null);
 
   async function getCommentReplies() {
-    const url = `http://localhost:5000/api/comments/show-comments?relatedShow=${showId}&parentComment=${comment._id}`;
+    const url = `/comments/show-comments?relatedShow=${showId}&parentComment=${comment._id}`;
 
     try {
-      const response = await axios.get(url);
+      const response = await api.get(url);
       const { commentsData } = response.data;
 
       setReplies((prev) => [...prev, ...commentsData]);

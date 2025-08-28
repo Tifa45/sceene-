@@ -6,6 +6,7 @@ import NoShowsFound from "../my-components/no-shows-found";
 import ShowCard from "../my-components/show-card";
 import Pagination from "../my-components/pagination";
 import Filter from "../my-components/filter";
+import api from "../lib/axios-utils";
 
 function Category() {
   const { category } = useParams();
@@ -24,18 +25,17 @@ function Category() {
   const [errMsg, setErrMsg] = useState(null);
 
   async function getCategory() {
-    setLoading(true)
+    setLoading(true);
     if (Object.values(filters).some((v) => v.length > 0)) {
-      
       return;
     }
-    
+
     const url =
       page > 0
-        ? `http://localhost:5000/api/shows/category/${category}?page=${page}`
-        : `http://localhost:5000/api/shows/category/${category}`;
+        ? `/shows/category/${category}?page=${page}`
+        : `/shows/category/${category}`;
     try {
-      const response = await axios.get(url);
+      const response = await api.get(url);
       const { showsData, total, totalPages } = response.data;
       setCategoryShows(showsData);
       setTotalPages(totalPages);
@@ -53,7 +53,7 @@ function Category() {
 
   async function filterShows() {
     setLoading(true);
-    
+
     try {
       if (filterPages === 0) {
         searchParams.delete("page");
@@ -97,7 +97,7 @@ function Category() {
     if (Object.values(filters).some((v) => v.length > 0 && v[0] !== category)) {
       filterShows();
     } else {
-      console.log("zero")
+      console.log("zero");
       return;
     }
   }, [filters, page]);
@@ -106,7 +106,11 @@ function Category() {
   if (loading) return <NoShowsFound msg="Loading" />;
   return (
     <>
-      <Filter filters={filters} setFilters={setFilters} setFilterPages={setFilterPages} />
+      <Filter
+        filters={filters}
+        setFilters={setFilters}
+        setFilterPages={setFilterPages}
+      />
       {errMsg ? (
         <NoShowsFound msg={errMsg} />
       ) : (

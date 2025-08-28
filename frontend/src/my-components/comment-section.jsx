@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 
 import CommentContainer from "./comment-container";
 import { toast } from "sonner";
+import api from "../lib/axios-utils";
 
 function CommentSection() {
   const { id: currentShowId } = useParams();
@@ -29,16 +30,17 @@ function CommentSection() {
   const lastPage = page >= totalPages - 1;
 
   async function getShowComments(showId, changed) {
-    const url = `http://localhost:5000/api/comments/show-comments?relatedShow=${showId}&page=${page}&recent=${recentComments.length}`;
+    const url = `/comments/show-comments?relatedShow=${showId}&page=${page}&recent=${recentComments.length}`;
 
     try {
-      const response = await axios.get(url);
+      const response = await api.get(url);
       const { commentsData, totalPages, total } = response.data;
-      
 
       const newCommentsIds = new Set(commentsData.map((c) => c._id));
 
-      const filtered =changed?[]: showComments.filter((c) => !newCommentsIds.has(c._id));
+      const filtered = changed
+        ? []
+        : showComments.filter((c) => !newCommentsIds.has(c._id));
 
       const updated = [...filtered, ...commentsData];
 
@@ -59,10 +61,9 @@ function CommentSection() {
     setLoadMore(false);
   }
 
-useEffect(()=>{
-  
-  getShowComments(currentShowId, true);
-},[currentShowId])
+  useEffect(() => {
+    getShowComments(currentShowId, true);
+  }, [currentShowId]);
 
   useEffect(() => {
     getShowComments(currentShowId);
@@ -100,7 +101,7 @@ useEffect(()=>{
   }, [deletedComment]);
 
   if (loading) return <div className="w-full p-8 ">Loading..</div>;
-console.log(totalComments)
+  console.log(totalComments);
   return (
     <div className=" relative h-full min-h-20">
       <div className="flex flex-col fixed top-0 left-0 right-0 p-6 z-10 ">
@@ -109,7 +110,13 @@ console.log(totalComments)
             <span className="text-2xl font-bold">{totalComments}</span> Comments
           </h2>
           <button
-            onClick={() =>{ if(!userId){toast.info("Login to add comments")} else{setAddComment(!addComment)}}}
+            onClick={() => {
+              if (!userId) {
+                toast.info("Login to add comments");
+              } else {
+                setAddComment(!addComment);
+              }
+            }}
             type="button"
             className="flex flex-col-reverse xl:flex-row items-center gap-2 2xl:gap-4 "
           >

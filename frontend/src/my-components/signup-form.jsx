@@ -2,6 +2,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../stores/user-store";
+import api from "../lib/axios-utils";
 
 function SignUpForm({ setFormType }) {
   const {
@@ -16,10 +17,7 @@ function SignUpForm({ setFormType }) {
 
   async function onSubmit(data) {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
-        data
-      );
+      const response = await api.post("/auth/signup", data);
       const { token } = response.data;
       localStorage.setItem("token", JSON.stringify(token));
       setTempToken(token);

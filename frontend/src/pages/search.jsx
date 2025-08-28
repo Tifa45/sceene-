@@ -20,8 +20,7 @@ function Search() {
   const [errMsg, setErrMsg] = useState(null);
 
   const getSearchedShows = async () => {
-   
-    const url = `http://localhost:5000/api/shows/search${query}&${page}`;
+    const url = `/shows/search${query}&${page}`;
     setLoding(true);
     try {
       const response = await axios.get(url);

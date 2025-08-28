@@ -125,7 +125,7 @@ function EditShowForm({ show, handleCloseModal }) {
     };
 
     try {
-      await api.patch("http://localhost:5000/api/shows/update", body);
+      await api.patch("/shows/update", body);
       toast.success("Updated successfully");
       handleCloseModal();
     } catch (error) {

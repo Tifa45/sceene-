@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { formatUserFullName, formatDateAndTime } from "../lib/utliles";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../lib/axios-utils";
 
 function PanelActivityTile({ log }) {
   const isDeleted = log.operation === "delete";
@@ -17,8 +18,8 @@ function PanelActivityTile({ log }) {
     setLoading(true);
 
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/comments/commentDetails?commentId=${log.documentId}`
+      const response = await api.get(
+        `/comments/commentDetails?commentId=${log.documentId}`
       );
       setCommentDetails(response.data.commentDetails);
       setErrMsg(null);

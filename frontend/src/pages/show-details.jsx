@@ -32,9 +32,7 @@ function ShowDetails() {
   async function getShow() {
     setLoading((prev) => ({ ...prev, main: true }));
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/shows/one-show/${id}`
-      );
+      const response = await axios.get(`/shows/one-show/${id}`);
       setCurrentShow(response.data.showsData);
       setErrMsg((msg) => ({ ...msg, main: null }));
     } catch (error) {

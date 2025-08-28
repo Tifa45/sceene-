@@ -59,9 +59,7 @@ function ManageUsers() {
 
   async function getUsers(searchUser) {
     setLoading(true);
-    const url = `http://localhost:5000/api/users/find-user?page=${
-      searchUser ? 0 : currentPage
-    }&search=${search}`;
+
     try {
       const response = await api.get(
         `/users/find-user?page=${searchUser ? 0 : currentPage}&search=${search}`

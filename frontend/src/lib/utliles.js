@@ -49,7 +49,7 @@ export const formatDateAndTime = (stringDate) => {
 
 export const handleLogout = async () => {
   try {
-    await axios.post("http://localhost:5000/api/auth/logout");
+    await axios.post("https://sceene.onrender.com/api/auth/logout");
     localStorage.clear();
     useUserStore.setState({ loggedOut: true });
   } catch (error) {

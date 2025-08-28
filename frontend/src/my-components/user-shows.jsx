@@ -7,6 +7,7 @@ import Pagination from "./pagination";
 import { Pencil, Trash2 } from "lucide-react";
 import ShowModal from "./show-modal";
 import { AnimatePresence } from "framer-motion";
+import api from "../lib/axios-utils";
 
 function UserShows({ setScrollY, scrollY, selectedUser }) {
   const { userId } = useUserStore((s) => s.userData);
@@ -56,8 +57,8 @@ function UserShows({ setScrollY, scrollY, selectedUser }) {
     setLoading(true);
     const uploader = currentUser ? currentUser : userId;
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/shows/filtered?uploadedBy=${uploader}&page=${currentPage}`
+      const response = await api.get(
+        `/shows/filtered?uploadedBy=${uploader}&page=${currentPage}`
       );
       const { total, totalPages, showsData } = response.data;
       setUserShows(showsData);
