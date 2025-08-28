@@ -7,6 +7,7 @@ import NoShowsFound from "../my-components/no-shows-found";
 import Pagination from "../my-components/pagination";
 import Filter from "../my-components/filter";
 import HeroSection from "../my-components/hero-section";
+import api from "../lib/axios-utils";
 
 function HomePage() {
   const shows = useShowStore((s) => s.shows);
@@ -29,9 +30,7 @@ function HomePage() {
       return;
     }
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/shows?page=${page}`
-      );
+      const response = await api.get(`/shows?page=${page}`);
       const { showsData, total, totalPages } = response.data;
       setShows(showsData);
       setTotalPages(totalPages);
@@ -102,10 +101,30 @@ function HomePage() {
   if (errMsg) return <NoShowsFound msg={errMsg} />;
   return (
     <>
-    <HeroSection/>
-    
- <div className="mt-[95vh]">
-       <div className="">
+      <HeroSection />
+
+      <div className="mt-[95vh]">
+        <div className="">
+          {totalPages > 1 && (
+            <Pagination
+              totalPages={totalPages}
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
+              pagesCount={6}
+              shift={3}
+            />
+          )}
+        </div>
+        <Filter
+          filters={filters}
+          setFilters={setFilters}
+          setFilterPages={setFilterPages}
+        />
+        <div className="flex flex-wrap gap-12 p-6 justify-center mt-6  ">
+          {shows.map((show) => (
+            <ShowCard key={show._id} show={show} />
+          ))}
+        </div>
         {totalPages > 1 && (
           <Pagination
             totalPages={totalPages}
@@ -116,26 +135,6 @@ function HomePage() {
           />
         )}
       </div>
-        <Filter
-        filters={filters}
-        setFilters={setFilters}
-        setFilterPages={setFilterPages}
-      />
-      <div className="flex flex-wrap gap-12 p-6 justify-center mt-6  ">
-        {shows.map((show) => (
-          <ShowCard key={show._id} show={show} />
-        ))}
-      </div>
-      {totalPages > 1 && (
-        <Pagination
-          totalPages={totalPages}
-          searchParams={searchParams}
-          setSearchParams={setSearchParams}
-          pagesCount={6}
-          shift={3}
-        />
-      )}
- </div>
     </>
   );
 }

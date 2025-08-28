@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://sceene.onrender.com/api/",
+  baseURL: "https://sceene.onrender.com/api",
   withCredentials: true,
 });
 
