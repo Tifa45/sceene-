@@ -26,12 +26,13 @@ It’s not a streaming platform — instead, it’s a **knowledge hub** where yo
 - Browse and search shows.
 - View show details and comments.
 - Register / Log in.
-- Manage personal info (username, password with old-password verification).
+
 
 #### **Logged-In Users**
 - Add shows to **favorites**.
 - Add new **comments**.
 - **Like** and **reply** to comments.
+- Manage personal info (username, password with old-password verification).
 
 #### **Moderators**
 - All logged-in user features, plus:
