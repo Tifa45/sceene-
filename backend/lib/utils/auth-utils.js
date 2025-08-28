@@ -1,0 +1,31 @@
+import JWT from "jsonwebtoken";
+
+export const handleGenerateToken = async (
+  payload,
+  accessSecret,
+  refreshSecret,
+  res
+) => {
+  try {
+    const accessToken = JWT.sign(payload, accessSecret, {
+      subject: "access-token",
+      expiresIn: "15m",
+    });
+    const refreshToken = JWT.sign(payload, refreshSecret, {
+      subject: "refresh-token",
+      expiresIn: "1d",
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      maxAge: 1 * 24 * 60 * 60 * 1000,
+      path: "/api/refresh/access-token",
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+    return accessToken;
+  } catch (error) {
+    console.log("GENERATING TOKEN ERROR: ", error);
+    throw new Error("Something went wrong while tryin to genetate tokens!");
+  }
+};
