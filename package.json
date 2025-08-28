@@ -4,8 +4,8 @@
   "description": "",
   "main": "./backend/server",
   "scripts": {
-    "bedev": "NODE_ENV= developing nodemon ./backend/server",
-    "start": "NODE_ENV= production node ./backend/server",
+    "bedev": "NODE_ENV=developing nodemon ./backend/server",
+    "start": "NODE_ENV=production node ./backend/server",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
