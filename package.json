@@ -5,8 +5,8 @@
   "main": "./backend/server",
   "scripts": {
     "bedev": "NODE_ENV= developing nodemon ./backend/server",
-     "start": "NODE_ENV= production node ./backend/server",
-     "build": "npm install && npm install --prefix forntend && npm run build --prefix forntend"  
+    "start": "NODE_ENV= production node ./backend/server",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
