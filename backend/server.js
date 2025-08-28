@@ -1,4 +1,5 @@
 import path from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 import cors from "cors";
 import { configDotenv } from "dotenv";
@@ -11,6 +12,9 @@ import showsRourtes from "./routers/show-routes.js";
 import commentsRoutes from "./routers/comment-routers.js";
 import logsRoutes from "./routers/logs-routers.js";
 import refreshRoutes from "./routers/refresh-routers.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 configDotenv();
 
