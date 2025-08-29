@@ -63,7 +63,7 @@ function ShowModal({
   async function handleDeleteManyShows() {
     const ids = selected.map((selectedShow) => selectedShow.id);
     const images = selected.map((selectedShow) => selectedShow.image);
-    images.forEach((image) => deleteImage(image));
+    await Promise.all(images.map((image) => deleteImage(image)));
     try {
       await api.delete("/shows/delete", {
         data: { showToDelete: ids },

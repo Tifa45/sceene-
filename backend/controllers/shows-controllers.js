@@ -443,7 +443,6 @@ export const handleImgeDelete = async (req, res) => {
 };
 
 export const handleCleanImgs = async (req, res) => {
-  console.log("hit", "Image");
   const imgsToClean = await TImg.find();
   if (!imgsToClean || imgsToClean.length === 0) {
     return res.status(404).end();

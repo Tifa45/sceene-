@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Plus, Trash2, Hand, ChevronRight } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { genres, categories } from "../lib/constans";
