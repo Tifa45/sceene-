@@ -152,7 +152,7 @@ function AddShowForm({ showsToAdd, setShowsToAdd, setFormsCount }) {
       setTempShowData((prev) => ({ ...prev, ...showData }));
       const updated = showsToAdd.map((addedShow) =>
         addedShow.tempId === tempShowData.tempId
-          ? { ...addedShow, showData }
+          ? { ...addedShow, ...showData }
           : addedShow
       );
       setShowsToAdd(updated);
