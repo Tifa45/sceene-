@@ -54,8 +54,8 @@ function ShowDetails() {
       currentShow?.genre.length > 0 ? currentShow.genre.join(",") : [];
 
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/shows/filtered?limit=10&except=${id}&genre=${genres}`
+      const response = await api.get(
+        `/shows/filtered?limit=10&except=${id}&genre=${genres}`
       );
       setRelatedShows(response.data.showsData);
       setErrMsg((msg) => ({ ...msg, related: null }));

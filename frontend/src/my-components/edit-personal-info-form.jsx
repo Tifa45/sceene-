@@ -14,7 +14,7 @@ function EditPersonalInfoForm({ personalInfo, setModalData }) {
   async function onSubmit(data) {
     const body = { ...data };
     try {
-      await api.patch("http://localhost:5000/api/users/update", body);
+      await api.patch("/users/update", body);
       toast.success("Saved");
 
       setModalData((data) => ({ ...data, isOpen: false, type: "" }));
