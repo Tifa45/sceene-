@@ -218,7 +218,7 @@ function AddShowForm({ showsToAdd, setShowsToAdd, setFormsCount }) {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-1 flex-1 h-[90%] "
+          className="flex flex-col gap-1 flex-1 max-h-[80vh] scrolly "
         >
           <div className="edit-profile-field ">
             <label htmlFor="title">Title:</label>

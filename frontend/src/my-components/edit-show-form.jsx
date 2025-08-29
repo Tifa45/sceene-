@@ -187,7 +187,7 @@ function EditShowForm({ show, handleCloseModal }) {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-2 flex-1"
+        className="flex flex-col gap-2 flex-1 max-h-[80vh] scrolly"
       >
         <div className="edit-profile-field ">
           <label htmlFor="title">Title:</label>
