@@ -269,7 +269,7 @@ function AddShowForm({ showsToAdd, setShowsToAdd, setFormsCount }) {
               name="genre"
               control={control}
               render={({ field }) => (
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   {genres.map((genre) => (
                     <div
                       key={genre}

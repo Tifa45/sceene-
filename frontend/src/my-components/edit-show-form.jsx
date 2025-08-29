@@ -234,7 +234,7 @@ function EditShowForm({ show, handleCloseModal }) {
             name="genre"
             control={control}
             render={({ field }) => (
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 {genres.map((genre) => (
                   <div
                     key={genre}

@@ -74,7 +74,7 @@ function EidtBulkShowsForm({ selected, setSelected, handleCloseModal }) {
         {errors.category && <p>{errors.category.message}</p>}
       </div>
       <div className="edit-profile-field p-4 border rounded-2xl">
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 flex-wrap items-center">
           <input type="checkbox" {...register("assign")} />{" "}
           <span>Assign Genres: </span>
         </div>
