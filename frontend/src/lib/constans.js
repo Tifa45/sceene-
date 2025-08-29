@@ -43,9 +43,54 @@ export const roles = ["public", "moderator", "admin"];
 
 export const categories = ["movies", "series", "tv", "animation"];
 
-export const genres = ["action", "comedy", "drama", "crime"];
+export const genres = [
+  "action",
+  "comedy",
+  "drama",
+  "crime",
+  "adventure",
+  "documentary",
+  "family",
+  "fantasy",
+  "history",
+  "horror",
+  "music",
+  "mystery",
+  "romance",
+  "science fiction",
+  "thriller",
+  "war",
+  "western",
+];
 
-export const years = ["2020", "2021", "2022", "2023", "2024", "2025"];
+export const years = [
+  "2000",
+  "2001",
+  "2002",
+  "2003",
+  "2004",
+  "2005",
+  "2006",
+  "2007",
+  "2008",
+  "2009",
+  "2010",
+  "2011",
+  "2012",
+  "2013",
+  "2014",
+  "2015",
+  "2016",
+  "2017",
+  "2018",
+  "2019",
+  "2020",
+  "2021",
+  "2022",
+  "2023",
+  "2024",
+  "2025",
+];
 
 export const models = ["User", "Show", "Comment"];
 
