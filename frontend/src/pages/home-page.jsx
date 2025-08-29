@@ -101,12 +101,9 @@ function HomePage() {
   if (errMsg) return <NoShowsFound msg={errMsg} />;
   return (
     <>
-      {Object.values(searchParams).every((v) => {
-        if (typeof v === "string" || Array.isArray(v)) {
-          return v.length === 0;
-        }
-        return v == null;
-      }) && <HeroSection />}
+      {Array.from(searchParams.values()).every(
+        (v) => v.trim().length === 0
+      ) && <HeroSection />}
 
       <div className="mt-[95vh]">
         <div className="">

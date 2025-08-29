@@ -5,7 +5,7 @@ function useIsDesktop() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth > 768);
+      setIsDesktop(window.innerWidth > 968);
     };
     window.addEventListener("resize", handleResize);
 
