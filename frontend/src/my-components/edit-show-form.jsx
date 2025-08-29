@@ -238,7 +238,7 @@ function EditShowForm({ show, handleCloseModal }) {
                 {genres.map((genre) => (
                   <div
                     key={genre}
-                    className="px-2 py-1.5 hover:text-amber-400 bg-secondary"
+                    className="px-2 py-1.5 hover:text-amber-400 bg-secondary text-nowrap"
                   >
                     <label className="flex items-center gap-2">
                       <input

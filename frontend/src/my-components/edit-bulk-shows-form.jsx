@@ -74,7 +74,7 @@ function EidtBulkShowsForm({ selected, setSelected, handleCloseModal }) {
         {errors.category && <p>{errors.category.message}</p>}
       </div>
       <div className="edit-profile-field p-4 border rounded-2xl">
-        <div className="flex gap-4 flex-wrap items-center">
+        <div className="flex gap-4 items-center">
           <input type="checkbox" {...register("assign")} />{" "}
           <span>Assign Genres: </span>
         </div>
@@ -82,11 +82,11 @@ function EidtBulkShowsForm({ selected, setSelected, handleCloseModal }) {
           control={control}
           name="genre"
           render={({ field }) => (
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               {genres.map((genre) => (
                 <div
                   key={genre}
-                  className="px-2 py-1.5 hover:text-amber-400 bg-secondary"
+                  className="px-2 py-1.5 hover:text-amber-400 bg-secondary text-nowrap"
                 >
                   <label className="flex items-center gap-2">
                     <input
