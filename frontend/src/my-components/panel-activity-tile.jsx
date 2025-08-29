@@ -179,10 +179,10 @@ function PanelActivityTile({ log }) {
                         </div>
                       ) : (
                         <p
-                          className={`col-span-4 w-full  border-4 ${
+                          className={`col-span-4  ${
                             change.field !== "description"
-                              ? "scrollx text-nowrap"
-                              : "justify-self-center"
+                              ? "scrollx text-nowrap w-full "
+                              : "justify-self-center flex"
                           }`}
                         >
                           {change.field === "password"
