@@ -30,8 +30,12 @@ function EidtBulkShowsForm({ selected, setSelected, handleCloseModal }) {
     const body = { showsToUpdate: ids, fieldsToupdate: validFields };
 
     try {
-      await api.patch("/shows/update-many", body);
-      toast.success("Updated successfullly");
+      const request = api.patch("/shows/update-many", body);
+      toast.promise(request, {
+        loading: "Updating",
+        success: "Updated successfullly",
+      });
+      await request;
       setSelected([]);
       handleCloseModal();
     } catch (error) {
