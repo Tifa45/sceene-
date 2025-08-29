@@ -179,9 +179,9 @@ function PanelActivityTile({ log }) {
                         </div>
                       ) : (
                         <p
-                          className={`col-span-4  ${
-                            change.field !== "description"
-                              ? "scrollx text-nowrap w-full "
+                          className={`col-span-4 ${
+                            change.field === "image"
+                              ? "scrollx text-nowrap w-full"
                               : "justify-self-center flex"
                           }`}
                         >
