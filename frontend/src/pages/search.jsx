@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ShowCard from "../my-components/show-card";
 import Pagination from "../my-components/pagination";
+import api from "../lib/axios-utils";
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,7 +24,7 @@ function Search() {
     const url = `/shows/search${query}&${page}`;
     setLoding(true);
     try {
-      const response = await axios.get(url);
+      const response = await api.get(url);
       const { showsData, total, totalPages } = response.data;
       setMatchedShows(showsData);
       setTotalPages(totalPages);
