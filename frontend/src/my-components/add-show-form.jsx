@@ -53,8 +53,8 @@ function AddShowForm({ showsToAdd, setShowsToAdd, setFormsCount }) {
   const noChanges = Object.keys(compareChanges).every((key) => {
     if (Array.isArray(compareChanges[key])) {
       return (
-        JSON.stringify(compareChanges[key]).sort() ===
-        JSON.stringify(tempShowData[key]).sort()
+        JSON.stringify(compareChanges[key].sort()) ===
+        JSON.stringify(tempShowData[key].sort())
       );
     }
 
