@@ -8,7 +8,7 @@ import { toast } from "sonner";
 function DetailsCard({ show, handleModal }) {
   const role = useUserStore((s) => s.userData.role);
   const userId = useUserStore((s) => s.userData.userId);
-  const canEdit = role === "admin" || show.uploadedBy === userId;
+  const canEdit = role === "admin" || show.uploadedBy._id === userId;
 
   return (
     <div className="overflow-hidden w-full flex flex-col md:flex-row gap-20 p-4 max-w-7xl mr-auto  rounded-md shadow-md shadow-black relative isolate">
@@ -31,10 +31,16 @@ function DetailsCard({ show, handleModal }) {
           <img className="w-full h-full" src={show.image} alt={show.title} />
         </div>
         <div className="w-full pt-4 flex flex-col gap-4 mt-auto  ">
-          <div >
+          <div>
             <button
               type="button"
-              onClick={() => {if(!userId){toast.info("Login to rate shows")} else {handleModal(true, "rating")}}}
+              onClick={() => {
+                if (!userId) {
+                  toast.info("Login to rate shows");
+                } else {
+                  handleModal(true, "rating");
+                }
+              }}
               className="details-btn-pub w-full  "
             >
               <Star /> <span>Rate</span>
