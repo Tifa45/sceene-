@@ -431,7 +431,7 @@ export const handleImgeDelete = async (req, res) => {
     const response = await cloudinary.uploader.destroy(publicId);
 
     if (
-      response.results === "not found" ||
+      response.result === "not found" ||
       response.result === "ok" ||
       response.result === "deleted"
     )
