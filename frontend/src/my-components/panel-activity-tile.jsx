@@ -126,10 +126,9 @@ function PanelActivityTile({ log }) {
                           <p>{key}: </p>
                           {Array.isArray(value) ? (
                             <div className="flex gap-2 scrollx text-nowrap">
-                              {" "}
                               {value.map((val) => (
                                 <p>{val}, </p>
-                              ))}{" "}
+                              ))}
                             </div>
                           ) : (
                             <p className="scrollx text-nowrap">{value}</p>
@@ -180,7 +179,7 @@ function PanelActivityTile({ log }) {
                         </div>
                       ) : (
                         <p
-                          className={`col-span-4 justify-self-center ${
+                          className={`col-span-4 justify-self-center border-4 ${
                             change.field !== "description"
                               ? "scrollx text-nowrap"
                               : ""

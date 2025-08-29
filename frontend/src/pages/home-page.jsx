@@ -24,6 +24,10 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
 
+  const showHeroSection = Array.from(searchParams.values()).every(
+    (v) => v.trim().length === 0
+  );
+
   async function getShows() {
     setLoading(true);
     if (Object.values(filters).some((v) => v.length > 0)) {
@@ -101,11 +105,9 @@ function HomePage() {
   if (errMsg) return <NoShowsFound msg={errMsg} />;
   return (
     <>
-      {Array.from(searchParams.values()).every(
-        (v) => v.trim().length === 0
-      ) && <HeroSection />}
+      {showHeroSection && <HeroSection />}
 
-      <div className="mt-[95vh]">
+      <div className={`${showHeroSection ? "mt-[95vh]" : ""}`}>
         <div className="">
           {totalPages > 1 && (
             <Pagination
