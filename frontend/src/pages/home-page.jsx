@@ -65,7 +65,7 @@ function HomePage() {
       }
       const url = `/shows/filtered?${searchParams}`;
 
-      const response = await axios.get(url);
+      const response = await api.get(url);
       const { showsData, total, totalPages } = response.data;
       setShows(showsData);
       setTotalPages(totalPages);

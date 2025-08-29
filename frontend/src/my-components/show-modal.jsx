@@ -28,8 +28,8 @@ function ShowModal({
     if (setScrollY) {
       setScrollY(true);
     }
+    if (setUpdates) setUpdates("idle");
     setModalData((data) => ({ ...data, isOpen: false, type: "" }));
-    setUpdates("idle");
   }
 
   async function deleteImage(urlTodelete) {

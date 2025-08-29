@@ -125,7 +125,7 @@ function PanelActivityTile({ log }) {
                         <div key={key} className="flex gap-4">
                           <p>{key}: </p>
                           {Array.isArray(value) ? (
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 scrollx text-nowrap">
                               {" "}
                               {value.map((val) => (
                                 <p>{val}, </p>
@@ -138,7 +138,7 @@ function PanelActivityTile({ log }) {
                       )
                     )}
                   </div>
-                  <p className="col-span-4 justify-self-center">
+                  <p className="col-span-4 justify-self-center scrollx text-nowrap">
                     {log.changes[0].newValue}
                   </p>
                 </div>
@@ -154,13 +154,19 @@ function PanelActivityTile({ log }) {
                       <p className="col-span-1">{index + 1}</p>
                       <p className="col-span-4">{change.field}</p>
                       {Array.isArray(change.oldValue) ? (
-                        <div className="col-span-7 flex gap-2">
+                        <div className="col-span-7 flex gap-2 scrollx text-nowrap">
                           {change.oldValue.map((val) => (
                             <p> {val}, </p>
                           ))}
                         </div>
                       ) : (
-                        <p className="col-span-7">
+                        <p
+                          className={`col-span-7 ${
+                            change.field !== "description"
+                              ? "scrollx text-nowrap"
+                              : ""
+                          }`}
+                        >
                           {change.field === "password"
                             ? "Password"
                             : change.oldValue}
@@ -173,7 +179,13 @@ function PanelActivityTile({ log }) {
                           ))}
                         </div>
                       ) : (
-                        <p className="col-span-4 justify-self-center">
+                        <p
+                          className={`col-span-4 justify-self-center ${
+                            change.field !== "description"
+                              ? "scrollx text-nowrap"
+                              : ""
+                          }`}
+                        >
                           {change.field === "password"
                             ? "Password"
                             : change.newValue}

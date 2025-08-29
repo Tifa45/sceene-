@@ -6,6 +6,7 @@ import axios from "axios";
 import ProfileLayout from "../my-components/profile-layout";
 import NoShowsFound from "../my-components/no-shows-found";
 import ProfileModal from "../my-components/profile-modal";
+import api from "../lib/axios-utils";
 
 function Profile() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ function Profile() {
   async function getUserProfile() {
     setLoading(true);
     try {
-      const response = await axios.get(`/users/profile/${id ?? userId}`);
+      const response = await api.get(`/users/profile/${id ?? userId}`);
       const { userData } = response.data;
       setUserProfile(userData);
       setErrMsg(null);
