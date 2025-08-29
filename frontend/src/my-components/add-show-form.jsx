@@ -50,9 +50,16 @@ function AddShowForm({ showsToAdd, setShowsToAdd, setFormsCount }) {
       compareChanges[field] = currentData[field];
     }
   }
-  const noChanges = Object.keys(compareChanges).every(
-    (key) => compareChanges[key] === tempShowData[key]
-  );
+  const noChanges = Object.keys(compareChanges).every((key) => {
+    if (Array.isArray(compareChanges[key])) {
+      return (
+        JSON.stringify(compareChanges[key]).sort() ===
+        JSON.stringify(tempShowData[key]).sort()
+      );
+    }
+
+    return compareChanges[key] === tempShowData[key];
+  });
 
   async function uploadImage(file) {
     if (!file.type.startsWith("image/")) {

@@ -1,5 +1,4 @@
 import { Star, Pencil, Trash2, Eye } from "lucide-react";
-
 import FavoritBtn from "./favorite-btn";
 import { useUserStore } from "../stores/user-store";
 import { Link } from "react-router-dom";

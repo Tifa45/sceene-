@@ -13,7 +13,7 @@ import {
   heroImageVars,
   staggerProps,
 } from "../lib/constans";
-import { formatUserFirstName } from "../lib/utliles";
+import { formatUserFullName } from "../lib/utliles";
 import api from "../lib/axios-utils";
 
 function HeroSection() {
@@ -115,7 +115,7 @@ function HeroSection() {
                 {heroShows[showIndex].genre.length > 0 &&
                   heroShows[showIndex].genre.map((genre) => (
                     <motion.p key={genre} variants={heroGenreVars}>
-                      {formatUserFirstName(genre)}
+                      {formatUserFullName(genre)}
                     </motion.p>
                   ))}
               </motion.div>
