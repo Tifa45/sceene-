@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { moderatorPanel } from "../lib/constans";
+import { adminPanel, moderatorPanel } from "../lib/constans";
 import { PanelRight, ChevronRight } from "lucide-react";
 import { useUserStore } from "../stores/user-store";
 import { Navigate } from "react-router-dom";
@@ -48,7 +48,7 @@ function Panel() {
       <Sidebar
         openSidebar={openSidebar}
         setOpenSidebar={setOpenSidebar}
-        tabs={moderatorPanel}
+        tabs={role === "admin" ? adminPanel : moderatorPanel}
         control={control}
         setControl={setControl}
       />

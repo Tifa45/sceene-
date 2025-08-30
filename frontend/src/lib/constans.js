@@ -22,7 +22,7 @@ export const publicUser = [
 
 export const moderatorUser = [
   { title: "Favorites", route: "favorites" },
-  { title: "Moderator Panel", route: "moderator-panel" },
+  { title: "Moderator Panel", route: "panel" },
   { title: "Profile", route: "profile" },
 ];
 
@@ -32,11 +32,15 @@ export const adminUser = [
   { title: "Profile", route: "profile" },
 ];
 
-export const moderatorPanel = [
+export const adminPanel = [
   { title: "Add Shows", control: "addShows", icon: Plus },
   { title: "Your Shows", control: "userShows", icon: Film },
   { title: "Manage Users", control: "manageUsers", icon: Users },
   { title: "Activities", control: "activities", icon: NotebookTabs },
+];
+export const moderatorPanel = [
+  { title: "Add Shows", control: "addShows", icon: Plus },
+  { title: "Your Shows", control: "userShows", icon: Film },
 ];
 
 export const roles = ["public", "moderator", "admin"];
