@@ -10,7 +10,6 @@ export const initialUserData = {
 
 export const navLinks = [
   { title: "Movies", route: "category/movies" },
-  { title: "Series", route: "category/series" },
   { title: "TV Shows", route: "category/tv" },
   { title: "Animation", route: "category/animation" },
 ];
@@ -45,7 +44,7 @@ export const moderatorPanel = [
 
 export const roles = ["public", "moderator", "admin"];
 
-export const categories = ["movies", "series", "tv", "animation"];
+export const categories = ["movies", "tv", "animation"];
 
 export const genres = [
   "action",
