@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://sceene.onrender.com/api",
+  // baseURL: "https://sceene.onrender.com/api",
+  baseURL: "https://sceene-production.up.railway.app",
   withCredentials: true,
 });
 
