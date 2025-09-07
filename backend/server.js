@@ -38,12 +38,12 @@ app.use("/api/shows", showsRourtes);
 app.use("/api/comments", commentsRoutes);
 app.use("/api/logs", logsRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-  app.get(/.*/, (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
+//   app.get(/.*/, (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
+//   });
+// }
 
 app.listen(process.env.PORT || 5000, async () => {
   await connect();
