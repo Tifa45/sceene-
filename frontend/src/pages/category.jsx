@@ -68,9 +68,9 @@ function Category() {
         }
         setSearchParams(searchParams);
       }
-      const url = `http://localhost:5000/api/shows/filtered?${searchParams}`;
+      const url = `/shows/filtered?${searchParams}`;
 
-      const response = await axios.get(url);
+      const response = await api.get(url);
       const { showsData, total, totalPages } = response.data;
       console.log(showsData);
       setCategoryShows(showsData);
