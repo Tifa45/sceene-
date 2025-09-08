@@ -9,7 +9,7 @@ export const handleGenerateToken = async (
   try {
     const accessToken = JWT.sign(payload, accessSecret, {
       subject: "access-token",
-      expiresIn: "15m",
+      expiresIn: "1m",
     });
     const refreshToken = JWT.sign(payload, refreshSecret, {
       subject: "refresh-token",
@@ -21,7 +21,7 @@ export const handleGenerateToken = async (
       path: "/api/refresh/access-token",
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
     });
     return accessToken;
   } catch (error) {
