@@ -9,7 +9,7 @@ export const handleGenerateToken = async (
   try {
     const accessToken = JWT.sign(payload, accessSecret, {
       subject: "access-token",
-      expiresIn: "10s",
+      expiresIn: "1d",
     });
     const refreshToken = JWT.sign(payload, refreshSecret, {
       subject: "refresh-token",
