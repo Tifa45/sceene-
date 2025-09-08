@@ -72,7 +72,6 @@ function Category() {
 
       const response = await api.get(url);
       const { showsData, total, totalPages } = response.data;
-      console.log(showsData);
       setCategoryShows(showsData);
       setTotalPages(totalPages);
       setTotalFound(total);
@@ -97,11 +96,9 @@ function Category() {
     if (Object.values(filters).some((v) => v.length > 0 && v[0] !== category)) {
       filterShows();
     } else {
-      console.log("zero");
       return;
     }
   }, [filters, page]);
-  console.log(totalPages);
 
   if (loading) return <NoShowsFound msg="Loading" />;
   return (

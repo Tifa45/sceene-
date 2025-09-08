@@ -23,7 +23,6 @@ function PanelActivityTile({ log }) {
       );
       setCommentDetails(response.data.commentDetails);
       setErrMsg(null);
-      console.log(response.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setErrMsg(error.response.data.message || error.message);

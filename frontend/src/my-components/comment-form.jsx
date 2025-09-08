@@ -99,7 +99,6 @@ function CommentForm({
       setEditedComment(response.data.commentsData);
       setEdit(false);
     } catch (error) {
-      console.log(error);
       setError("content", { message: error.message });
     }
   }

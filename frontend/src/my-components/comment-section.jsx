@@ -54,7 +54,6 @@ function CommentSection() {
         setErrMsg(error.response.data.message ?? error.message);
       } else {
         setErrMsg("Unexpected error");
-        console.log(error.message);
       }
     }
     setLoading(false);
@@ -101,7 +100,6 @@ function CommentSection() {
   }, [deletedComment]);
 
   if (loading) return <div className="w-full p-8 ">Loading..</div>;
-  console.log(totalComments);
   return (
     <div className=" relative h-full min-h-20">
       <div className="flex flex-col fixed top-0 left-0 right-0 p-6 z-10 ">

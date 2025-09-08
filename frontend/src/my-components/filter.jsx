@@ -7,7 +7,6 @@ function Filter({ filters, setFilters, setFilterPages }) {
   const [expand, setExpand] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const paramsObj = Object.fromEntries(searchParams.entries());
-console.log(paramsObj)
   function handleFilter(e) {
     if (paramsObj[e.target.name]?.includes(e.target.value)) {
       const filterArray = paramsObj[e.target.name].split(",");

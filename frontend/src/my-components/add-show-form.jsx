@@ -95,7 +95,6 @@ function AddShowForm({ showsToAdd, setShowsToAdd, setFormsCount }) {
 
       setErrMsg(null);
     } catch (error) {
-      console.log(error);
       setErrMsg(error.response.data.message || error.message);
     }
   }

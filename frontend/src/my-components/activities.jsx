@@ -67,7 +67,6 @@ function Actitvities({ selectedUser }) {
       setTotalPages(totalPages);
       setErrMsg(null);
     } catch (error) {
-      console.log(error);
       if (axios.isAxiosError(error)) {
         setErrMsg(error.response.data.message || error.message);
       } else {
