@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "bedev": "NODE_ENV=developing nodemon server.js",
-    "start": "NODE_ENV=production node server.js"
+    "start": " node server.js"
   },
   "keywords": [],
   "author": "",
