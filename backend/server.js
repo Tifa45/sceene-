@@ -48,4 +48,5 @@ app.use("/api/logs", logsRoutes);
 app.listen(process.env.PORT || 5000, async () => {
   await connect();
   console.log("listening to port 5000");
+  console.log("NODE_ENV =", process.env.NODE_ENV);
 });
